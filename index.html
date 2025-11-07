@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blue Pearl Water Solution - Pure Water, Pure Future</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0077be;
+            --secondary-color: #00a8ff;
+            --text-color: #333;
+            --bg-color: #ffffff;
+            --card-bg: #f8f9fa;
+            --border-color: #e9ecef;
+            --shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .dark-mode {
+            --primary-color: #00a8ff;
+            --secondary-color: #0077be;
+            --text-color: #f8f9fa;
+            --bg-color: #1a1a1a;
+            --card-bg: #2d2d2d;
+            --border-color: #404040;
+            --shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: var(--bg-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        .water-drop {
+            position: absolute;
+            top: -20px;
+            left: 10px;
+            font-size: 1.2rem;
+            animation: drop 5s infinite;
+        }
+
+        @keyframes drop {
+            0% { transform: translateY(-20px); opacity: 0; }
+            10% { transform: translateY(0); opacity: 1; }
+            20% { transform: translateY(25px); opacity: 0; }
+            100% { transform: translateY(25px); opacity: 0; }
+        }
+
+        .theme-toggle {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-left: 1rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .language-switcher {
+            margin-left: 2rem;
+        }
+
+        .lang-btn {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 2px;
+        }
+
+        .lang-btn.active {
+            background: rgba(255,255,255,0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 119, 190, 0.8), rgba(0, 168, 255, 0.8)), url('https://images.unsplash.com/photo-1541625602330-2277a4c46182?ixlib=rb-4.0.3') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-top: 70px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: white;
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: 2px solid var(--secondary-color);
+            font-size: 1.1rem;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background: var(--card-bg);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: var(--bg-color);
+            padding: 2.5rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+            color: var(--primary-color);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .service-card p {
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background: var(--bg-color);
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            color: var(--text-color);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 2rem;
+            background: var(--card-bg);
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+        }
+
+        .feature-item .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+            color: var(--primary-color);
+        }
+
+        /* Products Section */
+        .products {
+            padding: 80px 0;
+            background: var(--card-bg);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .product-card {
+            background: var(--bg-color);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: var(--bg-color);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: var(--card-bg);
+            border-radius: 10px;
+            transition: transform 0.3s;
+            border: 1px solid var(--border-color);
+        }
+
+        .contact-item:hover {
+            transform: translateX(10px);
+        }
+
+        .contact-item i {
+            font-size: 2rem;
+            color: var(--primary-color);
+            min-width: 50px;
+        }
+
+        .contact-item h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .contact-form {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+            background: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #00a8ff;
+        }
+
+        .footer-section p {
+            line-height: 1.6;
+            color: #ccc;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #34495e;
+            color: #ccc;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                gap: 1rem;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo-container">
+                <div class="water-drop">💧</div>
+                <div class="logo">
+                    <i class="fas fa-gem" style="color: #00a8ff; margin-right: 10px;"></i>
+                    Blue Pearl Water Solution
+                </div>
+            </div>
+            <div style="display: flex; align-items: center;">
+                <div class="language-switcher">
+                    <button class="lang-btn active" onclick="switchLanguage('en')">EN</button>
+                    <button class="lang-btn" onclick="switchLanguage('hi')">हिंदी</button>
+                </div>
+                <button class="theme-toggle" onclick="toggleTheme()">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <nav>
+                    <ul>
+                        <li><a href="#home" data-en="Home" data-hi="होम">Home</a></li>
+                        <li><a href="#about" data-en="About" data-hi="हमारे बारे में">About</a></li>
+                        <li><a href="#products" data-en="Products" data-hi="उत्पाद">Products</a></li>
+                        <li><a href="#contact" data-en="Contact" data-hi="संपर्क">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-content fade-in">
+            <h1 data-en="Blue Pearl Water Solution" data-hi="ब्लू पर्ल वाटर सॉल्यूशन">Blue Pearl Water Solution</h1>
+            <div class="tagline" data-en="Pure Water, Pure Future" data-hi="शुद्ध पानी, शुद्ध भविष्य">"Pure Water, Pure Future"</div>
+            <p data-en="Manufacturer & Supplier of High-Performance Water Treatment Chemicals" data-hi="उच्च-प्रदर्शन वाटर ट्रीटमेंट केमिकल्स के निर्माता और आपूर्तिकर्ता">Manufacturer & Supplier of High-Performance Water Treatment Chemicals</p>
+            <a href="#contact" class="btn" data-en="Contact Us" data-hi="संपर्क करें">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2 data-en="About Company" data-hi="कंपनी के बारे में">About Company</h2>
+            </div>
+            <div class="about-content fade-in">
+                <p data-en="Blue Pearl Water Solution is a professionally managed organization engaged in the formulation, manufacturing and supply of high-performance water treatment chemicals. We provide cost-effective and eco-friendly solutions for RO plants, boilers, cooling towers and industrial water systems." data-hi="ब्लू पर्ल वाटर सॉल्यूशन एक पेशेवर रूप से प्रबंधित संगठन है जो उच्च-प्रदर्शन वाटर ट्रीटमेंट केमिकल्स के फॉर्मूलेशन, निर्माण और आपूर्ति में engaged है। हम आरओ प्लांट, बॉयलर, कूलिंग टावर और औद्योगिक जल प्रणालियों के लिए cost-effective और eco-friendly समाधान प्रदान करते हैं।">
+                    Blue Pearl Water Solution is a professionally managed organization engaged in the formulation, manufacturing and supply of high-performance water treatment chemicals.
+                </p>
+                
+                <div class="features">
+                    <div class="feature-item fade-in">
+                        <span class="icon">🏭</span>
+                        <h3 data-en="Infrastructure" data-hi="इन्फ्रास्ट्रक्चर">Infrastructure</h3>
+                        <p data-en="Quality blending and testing equipment" data-hi="गुणवत्ता ब्लेंडिंग और परीक्षण उपकरण">Quality blending and testing equipment</p>
+                    </div>
+                    <div class="feature-item fade-in">
+                        <span class="icon">✅</span>
+                        <h3 data-en="Quality Assurance" data-hi="गुणवत्ता आश्वासन">Quality Assurance</h3>
+                        <p data-en="Laboratory screened products" data-hi="प्रयोगशाला में जाँचे गए उत्पाद">Laboratory screened products</p>
+                    </div>
+                    <div class="feature-item fade-in">
+                        <span class="icon">🎯</span>
+                        <h3 data-en="Mission & Vision" data-hi="मिशन और विजन">Mission & Vision</h3>
+                        <p data-en="Reliable and sustainable solutions" data-hi="विश्वसनीय और sustainable समाधान">Reliable and sustainable solutions</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2 data-en="Our Products" data-hi="हमारे उत्पाद">Our Products</h2>
+                <p data-en="High-performance water treatment chemicals" data-hi="उच्च-प्रदर्शन वाटर ट्रीटमेंट केमिकल्स">High-performance water treatment chemicals</p>
+            </div>
+            <div class="products-grid">
+                <div class="product-card fade-in">
+                    <h3>CT-201</h3>
+                    <p data-en="Cooling Tower Chemical" data-hi="कूलिंग टावर केमिकल">Cooling Tower Chemical</p>
+                </div>
+                <div class="product-card fade-in">
+                    <h3>BT-202</h3>
+                    <p data-en="Boiler Treatment Chemical" data-hi="बॉयलर ट्रीटमेंट केमिकल">Boiler Treatment Chemical</p>
+                </div>
+                <div class="product-card fade-in">
+                    <h3>DS-203</h3>
+                    <p data-en="Descaling Chemical" data-hi="डिस्केलिंग केमिकल">Descaling Chemical</p>
+                </div>
+                <div class="product-card fade-in">
+                    <h3>AS-204</h3>
+                    <p data-en="Anti-Scaling Chemical" data-hi="एंटी-स्केलिंग केमिकल">Anti-Scaling Chemical</p>
+                </div>
+                <div class="product-card fade-in">
+                    <h3>RA-205</h3>
+                    <p data-en="R.O. Antiscalant" data-hi="आरओ एंटीस्केलेंट">R.O. Antiscalant</p>
+                </div>
+                <div class="product-card fade-in">
+                    <h3>RC-206</h3>
+                    <p data-en="R.O. Cleaning Chemical" data-hi="आरओ क्लीनिंग केमिकल">R.O. Cleaning Chemical</p>
+                </div>
+                <div class="product-card fade-in">
+                    <h3>PH-207</h3>
+                    <p data-en="pH Booster" data-hi="पीएच बूस्टर">pH Booster</p>
+                </div>
+                <div class="product-card fade-in">
+                    <h3>SP-208</h3>
+                    <p data-en="Swimming Pool Chemical" data-hi="स्विमिंग पूल केमिकल">Swimming Pool Chemical</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2 data-en="Contact Us" data-hi="हमसे संपर्क करें">Contact Us</h2>
+                <p data-en="Get in touch with us" data-hi="हमसे संपर्क करें">Get in touch with us</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item fade-in">
+                        <i class="fas fa-user"></i>
+                        <div>
+                            <h3 data-en="Founder" data-hi="संस्थापक">Founder</h3>
+                            <p>Pawan Kumar</p>
+                        </div>
+                    </div>
+                    <div class="contact-item fade-in">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3 data-en="Address" data-hi="पता">Address</h3>
+                            <p>New Bahadur Chand Colony, Shivpuri Road, Karnal, Haryana, India</p>
+                        </div>
+                    </div>
+                    <div class="contact-item fade-in">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3 data-en="Contact" data-hi="संपर्क">Contact</h3>
+                            <p>+91 9991244411</p>
+                            <p>+91 9991244415</p>
+                        </div>
+                    </div>
+                    <div class="contact-item fade-in">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>bluepearlws@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item fade-in">
+                        <i class="fas fa-bullseye"></i>
+                        <div>
+                            <h3 data-en="Target Market" data-hi="लक्ष्य बाजार">Target Market</h3>
+                            <p data-en="RO Plants, Industries, Water Treatment Plants" data-hi="आरओ प्लांट, उद्योग, जल उपचार संयंत्र">RO Plants, Industries, Water Treatment Plants</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form fade-in">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name" data-en="Name" data-hi="नाम">Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone" data-en="Phone" data-hi="फोन">Phone</label>
+                            <input type="tel" id="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" data-en="Message" data-hi="संदेश">Message</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn" data-en="Send Message" data-hi="संदेश भेजें">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Blue Pearl Water Solution</h3>
+                    <p data-en="Pure Water, Pure Future" data-hi="शुद्ध पानी, शुद्ध भविष्य">Pure Water, Pure Future</p>
+                </div>
+                <div class="footer-section">
+                    <h3 data-en="Quick Links" data-hi="त्वरित लिंक">Quick Links</h3>
+                    <p><a href="#home" style="color: #ccc;">Home</a></p>
+                    <p><a href="#about" style="color: #ccc;">About</a></p>
+                    <p><a href="#products" style="color: #ccc;">Products</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3 data-en="Authorized Signatory" data-hi="अधिकृत हस्ताक्षरकर्ता">Authorized Signatory</h3>
+                    <p>Mr. Pawan Kumar</p>
+                    <p data-en="Distributor" data-hi="डिस्ट्रीब्यूटर">Distributor</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Blue Pearl Water Solution. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            const themeIcon = document.querySelector('.theme-toggle i');
+            if (document.body.classList.contains('dark-mode')) {
+                themeIcon.className = 'fas fa-sun';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeIcon.className = 'fas fa-moon';
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        // Language Switch
+        function switchLanguage(lang) {
+            document.querySelectorAll('[data-en]').forEach(element => {
+                if (lang === 'hi') {
+                    element.textContent = element.getAttribute('data-hi');
+                } else {
+                    element.textContent = element.getAttribute('data-en');
+                }
+            });
+            
+            // Update active language button
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            localStorage.setItem('language', lang);
+        }
+
+        // Water drop animation
+        function createWaterDrop() {
+            const drop = document.createElement('div');
+            drop.className = 'water-drop';
+            drop.textContent = '💧';
+            drop.style.left = Math.random() * 100 + 'px';
+            drop.style.animationDelay = Math.random() * 5 + 's';
+            document.querySelector('.logo-container').appendChild(drop);
+            
+            setTimeout(() => {
+                drop.remove();
+            }, 5000);
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load saved theme
+            if (localStorage.getItem('theme') === 'dark') {
+                document.body.classList.add('dark-mode');
+                document.querySelector('.theme-toggle i').className = 'fas fa-sun';
+            }
+            
+            // Load saved language
+            const savedLang = localStorage.getItem('language') || 'en';
+            switchLanguage(savedLang);
+            
+            // Start water drop animation
+            setInterval(createWaterDrop, 1000);
+            
+            // Form submission
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your message! We will contact you soon.');
+                this.reset();
+            });
+        });
+    </script>
+</body>
+</html>
