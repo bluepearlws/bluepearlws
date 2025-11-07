@@ -141,7 +141,7 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0, 119, 190, 0.8), rgba(0, 168, 255, 0.8)), url('https://images.unsplash.com/photo-1541625602330-2277a4c46182?ixlib=rb-4.0.3') no-repeat center center/cover;
+            background: linear-gradient(rgba(0, 119, 190, 0.8), rgba(0, 168, 255, 0.8)), url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') no-repeat center center/cover;
             height: 100vh;
             display: flex;
             align-items: center;
@@ -189,8 +189,61 @@
             transform: translateY(-2px);
         }
 
-        /* Services Section */
-        .services {
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1581092921461-eab62e97a780?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') no-repeat center center/cover;
+            color: white;
+            background-attachment: fixed;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            color: white;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .feature-item .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+            color: #00a8ff;
+        }
+
+        .feature-item h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .feature-item p {
+            color: #f0f0f0;
+        }
+
+        /* Products Section */
+        .products {
             padding: 80px 0;
             background: var(--card-bg);
         }
@@ -213,104 +266,6 @@
             margin: 0 auto;
         }
 
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .service-card {
-            background: var(--bg-color);
-            padding: 2.5rem;
-            border-radius: 15px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid var(--border-color);
-            position: relative;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .service-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            display: block;
-            color: var(--primary-color);
-        }
-
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-        }
-
-        .service-card p {
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-
-        /* About Section */
-        .about {
-            padding: 80px 0;
-            background: var(--bg-color);
-        }
-
-        .about-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .about-content p {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            margin-bottom: 2rem;
-            color: var(--text-color);
-        }
-
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .feature-item {
-            text-align: center;
-            padding: 2rem;
-            background: var(--card-bg);
-            border-radius: 10px;
-            border: 1px solid var(--border-color);
-        }
-
-        .feature-item .icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            display: block;
-            color: var(--primary-color);
-        }
-
-        /* Products Section */
-        .products {
-            padding: 80px 0;
-            background: var(--card-bg);
-        }
-
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -325,6 +280,7 @@
             text-align: center;
             border: 1px solid var(--border-color);
             transition: transform 0.3s;
+            box-shadow: var(--shadow);
         }
 
         .product-card:hover {
@@ -334,6 +290,11 @@
         .product-card h3 {
             color: var(--primary-color);
             margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .product-card p {
+            color: var(--text-color);
         }
 
         /* Contact Section */
@@ -381,45 +342,40 @@
             color: var(--primary-color);
         }
 
-        .contact-form {
+        .contact-details {
             background: var(--card-bg);
             padding: 2rem;
             border-radius: 15px;
             border: 1px solid var(--border-color);
+            text-align: center;
         }
 
-        .form-group {
+        .contact-details h3 {
+            color: var(--primary-color);
             margin-bottom: 1.5rem;
+            font-size: 1.5rem;
         }
 
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            color: var(--text-color);
+        .contact-info-simple {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
         }
 
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            font-size: 1rem;
-            transition: border-color 0.3s;
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
             background: var(--bg-color);
-            color: var(--text-color);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
         }
 
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary-color);
-        }
-
-        .form-group textarea {
-            height: 120px;
-            resize: vertical;
+        .contact-info-item i {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            width: 30px;
         }
 
         /* Footer */
@@ -472,7 +428,7 @@
                 font-size: 1.1rem;
             }
             
-            .services-grid {
+            .products-grid {
                 grid-template-columns: 1fr;
             }
             
@@ -495,10 +451,6 @@
 
         .fade-in {
             animation: fadeInUp 0.6s ease-out;
-        }
-
-        .hidden {
-            display: none;
         }
     </style>
 </head>
@@ -657,30 +609,23 @@
                             <p>bluepearlws@gmail.com</p>
                         </div>
                     </div>
-                    <div class="contact-item fade-in">
-                        <i class="fas fa-bullseye"></i>
-                        <div>
-                            <h3 data-en="Target Market" data-hi="लक्ष्य बाजार">Target Market</h3>
-                            <p data-en="RO Plants, Industries, Water Treatment Plants" data-hi="आरओ प्लांट, उद्योग, जल उपचार संयंत्र">RO Plants, Industries, Water Treatment Plants</p>
+                </div>
+                <div class="contact-details fade-in">
+                    <h3 data-en="Business Information" data-hi="व्यवसाय जानकारी">Business Information</h3>
+                    <div class="contact-info-simple">
+                        <div class="contact-info-item">
+                            <i class="fas fa-industry"></i>
+                            <span data-en="Nature of Business: Manufacturer & Supplier" data-hi="व्यवसाय का प्रकार: निर्माता और आपूर्तिकर्ता">Nature of Business: Manufacturer & Supplier</span>
+                        </div>
+                        <div class="contact-info-item">
+                            <i class="fas fa-flask"></i>
+                            <span data-en="Water Treatment Chemicals" data-hi="वाटर ट्रीटमेंट केमिकल्स">Water Treatment Chemicals</span>
+                        </div>
+                        <div class="contact-info-item">
+                            <i class="fas fa-award"></i>
+                            <span data-en="Quality Assured Products" data-hi="गुणवत्ता आश्वासित उत्पाद">Quality Assured Products</span>
                         </div>
                     </div>
-                </div>
-                <div class="contact-form fade-in">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name" data-en="Name" data-hi="नाम">Name</label>
-                            <input type="text" id="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone" data-en="Phone" data-hi="फोन">Phone</label>
-                            <input type="tel" id="phone" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message" data-en="Message" data-hi="संदेश">Message</label>
-                            <textarea id="message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn" data-en="Send Message" data-hi="संदेश भेजें">Send Message</button>
-                    </form>
                 </div>
             </div>
         </div>
@@ -773,13 +718,6 @@
             
             // Start water drop animation
             setInterval(createWaterDrop, 1000);
-            
-            // Form submission
-            document.getElementById('contactForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('Thank you for your message! We will contact you soon.');
-                this.reset();
-            });
         });
     </script>
 </body>
